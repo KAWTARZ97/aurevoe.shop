@@ -1,182 +1,211 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PAT Cargo VAD LLC</title>
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            color: #333;
-        }
-        nav {
-            background: #000;
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 30px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        nav .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-        nav ul {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-        nav ul li {
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 16px;
-        }
-        .hero {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            padding: 80px 20px;
-            background: #111;
-            color: #fff;
-            min-height: 100vh;
-            animation: fadeIn 2s ease-in-out;
-        }
-        .hero-text {
-            max-width: 500px;
-            padding: 20px;
-            animation: slideInLeft 1.5s ease;
-        }
-        .hero-text h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        .hero-text p {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-        .hero-img img {
-            max-width: 400px;
-            width: 100%;
-            border-radius: 10px;
-            animation: slideInRight 1.5s ease;
-        }
-        .section {
-            padding: 60px 20px;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease;
-        }
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .section h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
-        .section p {
-            font-size: 18px;
-            line-height: 1.8;
-            color: #555;
-        }
-        .contact {
-            background: #e9e9e9;
-            padding: 60px 20px;
-        }
-        footer {
-            background: #000;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Orr Twin Properties LLC — Real Estate & Leasing | Ukiah, CA</title>
+  <meta name="description" content="Nonresidential property leasing & management in Ukiah, CA. Professional tenant support, property upgrades, and transparent reporting. Call 858-687-2033 or email team@aurevoe.shop." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0f14;          /* Monochrome Luxury with blue accent */
+      --panel:#0f141b;
+      --card:#111a22;
+      --ink:#f8fafc;
+      --muted:#cbd5e1;
+      --blue:#2563eb;
+      --ring:rgba(37,99,235,.28);
+      --radius:18px; --shadow:0 22px 44px rgba(0,0,0,.55); --maxw:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif; background:linear-gradient(180deg,#070a0f,#0b0f14); color:var(--ink)}
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{max-width:var(--maxw); margin:0 auto; padding:0 20px}
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideInLeft {
-            from { transform: translateX(-50px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-        @keyframes slideInRight {
-            from { transform: translateX(50px); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-    </style>
+    header{position:sticky; top:0; z-index:60; backdrop-filter:saturate(1.1) blur(10px); background:color-mix(in srgb, #0b0f14 85%, transparent); border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav{display:flex; align-items:center; justify-content:space-between; height:72px}
+    .brand{display:flex; align-items:center; gap:.7rem; font-weight:900; letter-spacing:.2px; color:var(--blue)}
+    .logo{width:42px; height:42px; border-radius:12px; background:linear-gradient(135deg,var(--blue),#6ea8ff); display:grid; place-items:center; color:#071225; font-weight:900; box-shadow:0 10px 24px var(--ring)}
+    .nav ul{display:flex; gap:22px; list-style:none; margin:0; padding:0}
+    .nav a{font-weight:700; color:var(--ink)}
+
+    .hero{position:relative; isolation:isolate}
+    .hero .wrap{padding:96px 0 62px; text-align:center; background:radial-gradient(1200px 620px at 50% -50%, rgba(37,99,235,.22), transparent), linear-gradient(90deg, rgba(37,99,235,.12), rgba(37,99,235,.08))}
+    .tag{display:inline-flex; align-items:center; gap:.45rem; padding:7px 12px; border-radius:999px; background:rgba(37,99,235,.18); color:#dbeafe; border:1px solid rgba(37,99,235,.35); font-weight:800}
+    .hero h1{font-size:clamp(2rem,4.2vw,3.4rem); margin:14px 0 8px}
+    .hero p{color:var(--muted); max-width:900px; margin:0 auto}
+    .cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:18px}
+    .btn{display:inline-flex; align-items:center; gap:.6rem; padding:14px 18px; border-radius:14px; background:linear-gradient(135deg,var(--blue),#6ea8ff); color:#071225; font-weight:900; border:none; cursor:pointer; box-shadow:var(--shadow)}
+    .btn.ghost{background:transparent; border:2px solid var(--blue); color:var(--ink)}
+
+    section{padding:72px 0}
+    section .head{text-align:center; margin-bottom:22px}
+    section h2{font-size:clamp(1.5rem,2.5vw,2.2rem); margin:0}
+    .muted{color:var(--muted)}
+    .card{background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); box-shadow:var(--shadow)}
+    .pad{padding:22px}
+
+    .grid{display:grid; gap:18px}
+    .grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media (max-width: 980px){.grid-4,.grid-3{grid-template-columns:1fr 1fr}}
+    @media (max-width: 680px){.grid-4,.grid-3,.grid-2{grid-template-columns:1fr}}
+
+    .property img{aspect-ratio: 16 / 10; object-fit:cover; border-radius:14px; margin-bottom:10px}
+    .price{font-weight:900; color:#cfe0ff}
+
+    .gallery{display:grid; gap:14px; grid-template-columns:repeat(4,minmax(0,1fr))}
+    .gallery .item{border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,.1)}
+    .gallery .item img{aspect-ratio: 4 / 3; object-fit:cover}
+    @media(max-width:1100px){.gallery{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:720px){.gallery{grid-template-columns:repeat(1,1fr)}}
+
+    footer{padding:34px 0; border-top:1px solid rgba(255,255,255,.08); color:var(--muted); text-align:center}
+
+    .reveal{opacity:0; transform:translateY(18px); transition:all .6s ease}
+    .reveal.show{opacity:1; transform:none}
+  </style>
 </head>
 <body>
-
-    <nav>
-        <div class="logo">PAT Cargo VAD LLC</div>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <a href="#" class="brand">
+        <span class="logo">🏢</span>
+        <span>Orr Twin Properties LLC</span>
+      </a>
+      <nav>
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+          <li><a href="#properties">Properties</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
-    </nav>
+      </nav>
+    </div>
+  </header>
 
-    <div class="hero" id="home">
-        <div class="hero-text">
-            <h1>PAT Cargo VAD LLC</h1>
-            <p>Your trusted partner in transportation and warehousing. We provide reliable cargo services and storage solutions to meet your business needs with efficiency and care.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="container">
+        <span class="tag">Real Estate • Leasing • Management</span>
+        <h1>Quality spaces, professionally managed.</h1>
+        <p>We lease and manage nonresidential properties around Mendocino County with clear terms, responsive maintenance, and dependable tenant support.</p>
+        <div class="cta">
+          <a class="btn" href="tel:+18586872033">Call 858‑687‑2033</a>
+          <a class="btn ghost" href="mailto:team@aurevoe.shop">Email Us</a>
         </div>
-        <div class="hero-img">
-            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=934&q=80" alt="Cargo Services">
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Properties (placeholders using your images) -->
+  <section id="properties">
+    <div class="container">
+      <div class="head">
+        <h2>Available / Featured</h2>
+        <p class="muted">Update pricing and links to fit your listings</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card pad property reveal">
+          <img src="https://cdn.mos.cms.futurecdn.net/RB6yBcdaePNcbDeUgMMZYF.jpg" alt="Modern office exterior"/>
+          <h3>Orr Springs Flex</h3>
+          <p class="muted">2,800–6,000 SF • flex/office • ample parking</p>
+          <p class="price">From $1.65/SF NNN</p>
+          <button class="btn" style="width:100%">Request Info</button>
         </div>
+        <div class="card pad property reveal">
+          <img src="https://avatars.mds.yandex.net/i?id=844bdd1c324857851f727801e2ec5523-3689974-images-thumbs&n=13" alt="Lobby"/>
+          <h3>Downtown Retail</h3>
+          <p class="muted">Street‑front unit • high foot traffic</p>
+          <p class="price">Call for rate</p>
+          <button class="btn" style="width:100%">Request Info</button>
+        </div>
+        <div class="card pad property reveal">
+          <img src="https://avatars.mds.yandex.net/i?id=e9d3bda54dfabd7443010d6e4b92b35f4d40420d-5507408-images-thumbs&n=13" alt="Warehouse"/>
+          <h3>Light Industrial</h3>
+          <p class="muted">Roll‑up doors • 3‑phase power • yard</p>
+          <p class="price">Negotiable</p>
+          <button class="btn" style="width:100%">Request Info</button>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="section" id="about">
-        <h2>About Us</h2>
-        <p>PAT Cargo VAD LLC is a Domestic LLC based in Arizona, offering specialized services in transportation and warehousing. With a focus on reliability and customer satisfaction, we have been serving businesses since 2021.</p>
-        <p><strong>Registered Address:</strong><br>
-        2902 W Sweetwater Ave, Apt 2190, Phoenix, AZ 85029, United States</p>
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="head">
+        <h2>What We Do</h2>
+        <p class="muted">Hands‑on ownership • Transparent operations</p>
+      </div>
+      <div class="grid grid-3">
+        <div class="card pad reveal"><h3>Leasing</h3><p class="muted">Clear NNN terms, straightforward build‑out allowances, and flexible options for qualified tenants.</p></div>
+        <div class="card pad reveal"><h3>Property Management</h3><p class="muted">Proactive maintenance, vendor coordination, and capital improvement planning.</p></div>
+        <div class="card pad reveal"><h3>Tenant Support</h3><p class="muted">Responsive communications and digital work‑order tracking for quick resolutions.</p></div>
+      </div>
     </div>
+  </section>
 
-    <div class="section contact" id="contact">
-        <h2>Contact Us</h2>
-        <p><strong>Email:</strong> <a href="mailto:contact@patcargovadllc.click">contact@patcargovadllc.click</a></p>
-        <p><strong>Agent Address:</strong><br>
-        2902 W Sweetwater Ave, Apt 2190, Phoenix, AZ 85029, United States</p>
+  <!-- Gallery -->
+  <section id="gallery">
+    <div class="container">
+      <div class="head">
+        <h2>Gallery</h2>
+        <p class="muted">Properties & amenities</p>
+      </div>
+      <div class="gallery reveal">
+        <div class="item"><img src="https://avatars.mds.yandex.net/i?id=d1c9096f3db694a2fb8616371dac61bac44d36d9-12157839-images-thumbs&n=13" alt="Conference room"/></div>
+        <div class="item"><img src="https://avatars.mds.yandex.net/i?id=8f84dfa0b2a3fa6582dcc50033bb1ba60d35e98f-6909092-images-thumbs&n=13" alt="Exterior night"/></div>
+        <div class="item"><img src="https://cdn.mos.cms.futurecdn.net/RB6yBcdaePNcbDeUgMMZYF.jpg" alt="Office building"/></div>
+        <div class="item"><img src="https://avatars.mds.yandex.net/i?id=e9d3bda54dfabd7443010d6e4b92b35f4d40420d-5507408-images-thumbs&n=13" alt="Warehouse floor"/></div>
+      </div>
     </div>
+  </section>
 
-    <footer>
-        &copy; 2025 PAT Cargo VAD LLC. All rights reserved.
-    </footer>
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="head">
+        <h2>Contact</h2>
+        <p class="muted">We’ll respond quickly</p>
+      </div>
+      <div class="grid grid-2">
+        <div class="card pad reveal">
+          <p><strong>Company:</strong> Orr Twin Properties LLC<br>
+          <strong>Address:</strong> 10701 Orr Springs Rd, Ukiah, CA 95482‑9024, United States<br>
+          <strong>Phone:</strong> <a href="tel:+18586872033">858‑687‑2033</a><br>
+          <strong>Email:</strong> <a href="mailto:team@aurevoe.shop">team@aurevoe.shop</a></p>
+          <form onsubmit="event.preventDefault(); alert('Thanks! We will contact you shortly.');" style="margin-top:12px">
+            <input aria-label="Your name" required placeholder="Your name" style="width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#0f1520; color:#fff; margin-bottom:10px" />
+            <input aria-label="Email" type="email" required placeholder="Email" style="width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#0f1520; color:#fff; margin-bottom:10px" />
+            <textarea rows="5" aria-label="Message" required placeholder="Tell us about your space needs, timing, and budget..." style="width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#0f1520; color:#fff; margin-bottom:10px"></textarea>
+            <button class="btn" type="submit">Send</button>
+          </form>
+        </div>
+        <div class="card pad reveal">
+          <iframe style="width:100%; height:340px; border:0; border-radius:14px" src="https://www.google.com/maps?q=10701+Orr+Springs+Rd,+Ukiah,+CA+95482&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Intersection Observer for fade-in effect
-        const sections = document.querySelectorAll('.section');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Orr Twin Properties LLC. All rights reserved.</p>
+    </div>
+  </footer>
 
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-    </script>
-
+  <script>
+    const io = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('show'); }); }, {threshold:.14});
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
